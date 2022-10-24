@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <div id="abc" class="foo" onload="showTime()"></div>
+    </div>
+    <script>
+
+        function showTime(){
+    var date = new Date()
+    var a = date.getHours()
+    var b = date.getMinutes()
+    var c = date.getSeconds()
+    var session = "AM"
+    
+    if(a == 0){
+        a = 12
+    }
+    
+    if(a > 12){
+        a = a - 12
+        session = "PM"
+    }
+    
+    a = (a < 10) ? "0" + a : a
+    b = (b < 10) ? "0" + b : b
+    c = (c < 10) ? "0" + c : c
+    
+    var time = a + ":" + b + ":" + c + " " + session
+    document.getElementById("abc").innerText = time
+    document.getElementById("abc").textContent = time
+    
+    setTimeout(showTime, 1000)
+    
+}
+
+showTime()
+    </script>
+
+</body>
+</html>
